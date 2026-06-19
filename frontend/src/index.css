@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@variant dark (&:is(.dark *));
+
+:root {
+  /* Default accent: indigo */
+  --accent-50: #eef2ff;
+  --accent-100: #e0e7ff;
+  --accent-200: #c7d2fe;
+  --accent-300: #a5b4fc;
+  --accent-400: #818cf8;
+  --accent-500: #6366f1;
+  --accent-600: #4f46e5;
+  --accent-700: #4338ca;
+  --accent-800: #3730a3;
+  --accent-900: #312e81;
+  --accent-950: #1e1b4b;
+}
+
+html {
+  background-color: #ffffff;
+  color: #0f172a;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark {
+  background-color: #0F172A;
+  color: #F8FAFC;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #0F172A;
+}
+
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* Prevent transition on transform/scale for Framer Motion */
+[style*="transform"],
+[style*="scale"] {
+  transition-property: background-color, border-color, color, fill, stroke;
+}
+
+/* Accent color utilities */
+.accent-gradient-r {
+  background-image: linear-gradient(to right, var(--accent-600), var(--accent-700));
+}
+.accent-gradient-br {
+  background-image: linear-gradient(to bottom right, var(--accent-500), var(--accent-700));
+}
+.accent-text-gradient {
+  background-image: linear-gradient(to right, var(--accent-600), var(--accent-700));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.accent-bg-50 { background-color: var(--accent-50); }
+.accent-bg-100 { background-color: var(--accent-100); }
+.accent-bg-200 { background-color: var(--accent-200); }
+.accent-bg-500 { background-color: var(--accent-500); }
+.accent-bg-600 { background-color: var(--accent-600); }
+.accent-bg-700 { background-color: var(--accent-700); }
+.accent-text-400 { color: var(--accent-400); }
+.accent-text-500 { color: var(--accent-500); }
+.accent-text-600 { color: var(--accent-600); }
+.accent-text-700 { color: var(--accent-700); }
+.accent-border-100 { border-color: var(--accent-100); }
+.accent-border-200 { border-color: var(--accent-200); }
+.accent-border-500 { border-color: var(--accent-500); }
+.accent-shadow {
+  box-shadow: 0 10px 15px -3px color-mix(in srgb, var(--accent-500) 20%, transparent), 0 4px 6px -4px color-mix(in srgb, var(--accent-500) 20%, transparent);
+}
+.accent-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-300);
+}
+
+/* Hero Banner Animations */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer-sweep {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.08; }
+}
+
+@keyframes glow-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+  33% { transform: translate(20px, -15px) scale(1.1); opacity: 1; }
+  66% { transform: translate(-10px, 10px) scale(0.95); opacity: 0.7; }
+}
+
+@keyframes glow-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.9; }
+  33% { transform: translate(-15px, 20px) scale(1.05); opacity: 0.7; }
+  66% { transform: translate(10px, -10px) scale(1.15); opacity: 1; }
+}
+
+@keyframes glow-drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50% { transform: translate(15px, 5px) scale(1.1); opacity: 0.8; }
+}
+
+.hero-banner-animated {
+  background-size: 200% 200%;
+  animation: gradient-shift 10s ease infinite;
+}
+
+.hero-banner-shimmer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.hero-banner-shimmer-bar {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 60%
+  );
+  animation: shimmer-sweep 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-banner-dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  animation: dot-pulse 4s ease-in-out infinite;
+  border-radius: inherit;
+}
+
+.hero-banner-text {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(150, 100, 255, 0.3);
+}
+
+.hero-banner-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.hero-banner-glow-left {
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(ellipse, rgba(0, 210, 200, 0.25) 0%, transparent 65%);
+  animation: glow-drift-1 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-banner-glow-right {
+  position: absolute;
+  top: -10%;
+  right: -15%;
+  width: 70%;
+  height: 90%;
+  background: radial-gradient(ellipse, rgba(120, 60, 220, 0.3) 0%, transparent 65%);
+  animation: glow-drift-2 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-banner-glow-bottom {
+  position: absolute;
+  bottom: -30%;
+  left: 20%;
+  width: 60%;
+  height: 70%;
+  background: radial-gradient(ellipse, rgba(200, 50, 200, 0.15) 0%, transparent 60%);
+  animation: glow-drift-3 6s ease-in-out infinite;
+  pointer-events: none;
+}

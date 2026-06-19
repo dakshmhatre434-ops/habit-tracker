@@ -1,0 +1,25 @@
+{
+  "name": "habit-tracker-api",
+  "version": "1.0.0",
+  "description": "A production-style Node.js + Express API for tracking daily habits with weekly analytics, streaks, and completion insights.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js"
+  },
+  "keywords": [
+    "habit-tracker",
+    "api",
+    "express",
+    "nodejs",
+    "analytics",
+    "productivity"
+  ],
+  "author": "Daksh",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^16.4.5",
+    "express": "^5.2.1"
+  }
+}

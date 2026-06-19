@@ -1,0 +1,37 @@
+
+
+/* Accent color utilities */
+.accent-gradient-r {
+  background-image: linear-gradient(to right, var(--accent-600), var(--accent-700));
+}
+.accent-gradient-br {
+  background-image: linear-gradient(to bottom right, var(--accent-500), var(--accent-700));
+}
+.accent-text-gradient {
+  background-image: linear-gradient(to right, var(--accent-600), var(--accent-700));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.accent-bg-50 { background-color: var(--accent-50); }
+.accent-bg-100 { background-color: var(--accent-100); }
+.accent-bg-200 { background-color: var(--accent-200); }
+.accent-bg-500 { background-color: var(--accent-500); }
+.accent-bg-600 { background-color: var(--accent-600); }
+.accent-bg-700 { background-color: var(--accent-700); }
+.accent-text-400 { color: var(--accent-400); }
+.accent-text-500 { color: var(--accent-500); }
+.accent-text-600 { color: var(--accent-600); }
+.accent-text-700 { color: var(--accent-700); }
+.accent-border-100 { border-color: var(--accent-100); }
+.accent-border-200 { border-color: var(--accent-200); }
+.accent-border-500 { border-color: var(--accent-500); }
+.accent-shadow {
+  box-shadow: 0 10px 15px -3px color-mix(in srgb, var(--accent-500) 20%, transparent), 0 4px 6px -4px color-mix(in srgb, var(--accent-500) 20%, transparent);
+}
+.accent-ring:focus {
+  outline: none;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--accent-300);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
